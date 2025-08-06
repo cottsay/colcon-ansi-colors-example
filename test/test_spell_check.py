@@ -10,7 +10,6 @@ spell_check_words_path = Path(__file__).parent / 'spell_check.words'
 
 @pytest.fixture(scope='module')
 def known_words():
-    global spell_check_words_path
     return spell_check_words_path.read_text().splitlines()
 
 
@@ -22,7 +21,7 @@ def test_spell_check(known_words):
 
     source_filenames = [Path(__file__).parents[1] / 'setup.py'] + \
         list(
-            (Path(__file__).parents[1] / 'template_package')
+            (Path(__file__).parents[1] / 'colcon_ansi_colors_example')
             .glob('**/*.py')) + \
         list((Path(__file__).parents[1] / 'test').glob('**/*.py'))
 
