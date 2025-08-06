@@ -33,7 +33,7 @@ class AnsiEscape(Stylizer):
             return second
         first = first[2:-1]
         second = second[2:-1]
-        return f'{first};{second}'
+        return f'{first};{second}'  # noqa: E231, E702
 
 
 AnsiEscape.Black = AnsiEscape(30)
