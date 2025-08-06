@@ -1,0 +1,17 @@
+---
+name: Run tests
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches: ['main']
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  pytest:
+    uses: colcon/ci/.github/workflows/pytest.yaml@main
+  yamllint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: yamllint -f github .
